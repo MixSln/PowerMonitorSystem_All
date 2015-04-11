@@ -87,8 +87,7 @@ namespace PowerServer.DataContracts
     [DataContract]
     public struct UserBaseInfo
     {
-        [DataMember]
-        int id;
+
     }
     [DataContract]
     public class UserInfo
