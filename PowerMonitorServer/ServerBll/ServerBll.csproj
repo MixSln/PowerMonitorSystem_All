@@ -46,6 +46,10 @@
     <Compile Include="Modules\UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataContracts\DataContracts.csproj">
+      <Project>{363340ca-0c20-490b-9707-3146268db885}</Project>
+      <Name>DataContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PublisherServer\PublisherServer.csproj">
       <Project>{80eb6179-b41f-4893-880b-741cd18401ee}</Project>
       <Name>PublisherServer</Name>
