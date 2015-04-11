@@ -7,7 +7,7 @@
     <ProjectGuid>{363340CA-0C20-490B-9707-3146268DB885}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataContracts</RootNamespace>
+    <RootNamespace>PowerServer.DataContracts</RootNamespace>
     <AssemblyName>DataContracts</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

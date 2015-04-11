@@ -7,7 +7,7 @@
     <ProjectGuid>{80EB6179-B41F-4893-880B-741CD18401EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PublisherServer</RootNamespace>
+    <RootNamespace>PowerServer.PublisherServer</RootNamespace>
     <AssemblyName>PublisherServer</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -7,7 +7,7 @@
     <ProjectGuid>{DED04CCB-99B8-47E5-8A08-558133AF6B98}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PowerMonitorServerHost</RootNamespace>
+    <RootNamespace>PowerServer.PowerMonitorServerHost</RootNamespace>
     <AssemblyName>PowerMonitorServerHost</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

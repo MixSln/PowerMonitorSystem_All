@@ -7,7 +7,7 @@
     <ProjectGuid>{FE7A0AAF-2097-48B0-9004-268E6C47BDCC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ServerBll</RootNamespace>
+    <RootNamespace>PowerServer.ServerBll</RootNamespace>
     <AssemblyName>ServerBll</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -7,7 +7,7 @@
     <ProjectGuid>{945B7A2C-0FBB-465E-91D5-3F6DCBA303B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ServerAil</RootNamespace>
+    <RootNamespace>PowerServer.ServerAil</RootNamespace>
     <AssemblyName>ServerAil</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
