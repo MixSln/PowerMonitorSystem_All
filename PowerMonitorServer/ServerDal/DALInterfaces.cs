@@ -12,27 +12,27 @@ namespace PowerServer.ServerDAL
         RoomBaseInfo GetRoomById(int roomId);
         IList<RoomBaseInfo> GetRoomList();
         IList<RoomBaseInfo> GetRoomListByUserId(int userId);
-        int AddRoom(RoomBaseInfo room);//return roomId -1 indicate error
-        bool DeleteRoom(int roomId);
-        bool UpdateRoom(RoomBaseInfo room);
+        int? AddRoom(RoomBaseInfo room);//return roomId -1 indicate error
+        void DeleteRoom(int roomId);
+        void UpdateRoom(RoomBaseInfo room);
 
-        bool AddDeviceToRoom(int deviceId, int roomId);
-        bool DeleteDeviceFromRoom(int deviceId, int roomId);
+        void AddDeviceToRoom(int deviceId, int roomId);
+        void DeleteDeviceFromRoom(int deviceId, int roomId);
     }
 
     public interface IDeviceDAL
     {
         DeviceBaseInfo GetDeviceById(int deviceId);
         IList<DeviceBaseInfo> GetDeviceList();
-         IList<DeviceBaseInfo> GetDeviceListByUserId(int userId);
-         IList<DeviceBaseInfo> GetUnAssignedDeviceList();
+        IList<DeviceBaseInfo> GetDeviceListByUserId(int userId);
+        IList<DeviceBaseInfo> GetUnAssignedDeviceList();
         IList<DeviceBaseInfo> GetDeviceListByRoomId(int roomId);
 
-        int AddDevice(DeviceBaseInfo device);        
-        bool UpdateDevice(DeviceBaseInfo device);
+        int? AddDevice(DeviceBaseInfo device);        
+        void UpdateDevice(DeviceBaseInfo device);
 
-        bool AddDeviceToRoom(int deviceId, int roomId);
-        bool DeleteDeviceFromRoom(int deviceId, int roomId);
+        void AddDeviceToRoom(int deviceId, int roomId);
+        void DeleteDeviceFromRoom(int deviceId, int roomId);
     }
 
     public interface IConfigDAL

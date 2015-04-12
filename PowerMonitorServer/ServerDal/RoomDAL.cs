@@ -20,19 +20,32 @@ namespace PowerServer.ServerDAL
         private static string STMT_GETROOMBYID = @"SELECT [distId]
                           ,[distName],[nickName],[distAddress],[distDesc],[contact_primary]
                           ,[phoneNumber_primary],[contact_bak1],[phoneNumber_bak1],[contact_bak2],[phoneNumber_bak2]
-                      FROM [PowerMonitor].[dbo].[distribution]
+                      FROM [dbo].[distribution]
                         Where distId = @distId";
         private static string STMT_GETROOMLIST = @"SELECT [distId]
                           ,[distName],[nickName],[distAddress],[distDesc],[contact_primary]
                           ,[phoneNumber_primary],[contact_bak1],[phoneNumber_bak1],[contact_bak2],[phoneNumber_bak2]
-                      FROM [PowerMonitor].[dbo].[distribution]";
+                      FROM [dbo].[distribution]";
 
         private static string STMT_GETROOMLISTBYUSERID = @"SELECT a.[distId]
                           ,[distName],[nickName],[distAddress],[distDesc],[contact_primary]
                           ,[phoneNumber_primary],[contact_bak1],[phoneNumber_bak1],[contact_bak2],[phoneNumber_bak2]
-                      FROM [PowerMonitor].[dbo].[distribution] a
+                      FROM [dbo].[distribution] a
                       JOIN dbo.userDistribution b on a.distId = b.distId
                       where b.userId = @userId";
+        private static string STMT_ADDROOM = @"INSERT INTO [dbo].[distribution]
+                       ([distName],[nickName],[distAddress],[distDesc],[contact_primary],[phoneNumber_primary]
+                       ,[contact_bak1],[phoneNumber_bak1],[contact_bak2],[phoneNumber_bak2])
+                 VALUES(@distName,@nickName,@distAddress,@distDesc,@contact_primary,@phoneNumber_primary,@contact_bak1
+                       ,@phoneNumber_bak1,@contact_bak2,@phoneNumber_bak2);
+                        select SCOPE_IDENTITY() RoomId;";
+        private static string  STMT_DELETEROOM = @"delete dbo.distribution where distId = @distId";
+        private static string STMT_UPDATEROOM = @"update dbo.distribution set distName = @distName,nickName = @nickName,distAddress = @distAddress
+                    ,distDesc = @distDesc,distDesc = @distDesc,contact_primary = @contact_primary,phoneNumber_primary = @phoneNumber_primary
+                    ,contact_bak1 = @contact_bak1,phoneNumber_bak1 = @phoneNumber_bak1,contact_bak2=@contact_bak2,phoneNumber_bak2=@phoneNumber_bak2 
+                    where distId = @distId";
+        private static string STMT_ADDDEVICETOROOM = @"Updae dbo.Device set distId = NULL where devId = @devId and distId = @distId";
+        private static string STMT_DELETEDEVICEFROMROOM = @"Updae dbo.Device set distId = @distId where devId = @devId";
         private static RoomBaseInfo ReadReader(IDataReader objReader)
         {
             RoomBaseInfo instance = new RoomBaseInfo();
@@ -167,9 +180,120 @@ namespace PowerServer.ServerDAL
             }
             return instances;
         
+        }
 
-            public int AddRoom(RoomBaseInfo room){
+        public int? AddRoom(RoomBaseInfo room){
+            Database db;
+            string sqlCommand;
+            DbCommand dbCommand;
+            int? roomId = 0;
+            bool returnValue = false;
 
+            db = DatabaseFactory.CreateDatabase();
+            sqlCommand = STMT_ADDROOM;
+            dbCommand = db.GetSqlStringCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@distName", DbType.String, room.RoomName);
+            db.AddInParameter(dbCommand, "@nickName", DbType.String, room.RoomNickName);
+            db.AddInParameter(dbCommand, "@distAddress", DbType.String, room.RoomAddress);
+            db.AddInParameter(dbCommand, "@distDesc", DbType.String, room.RoomDescription);
+            db.AddInParameter(dbCommand, "@contact_primary", DbType.String, room.PrimaryContact);
+            db.AddInParameter(dbCommand, "@phoneNumber_primary", DbType.String, room.PrimaryPhoneNumber);
+            db.AddInParameter(dbCommand, "@contact_bak1", DbType.String, room.Bak1Contact);
+            db.AddInParameter(dbCommand, "@phoneNumber_bak1", DbType.String, room.Bak1PhoneNumber);
+            db.AddInParameter(dbCommand, "@contact_bak2", DbType.String, room.Bak2Contact);
+            db.AddInParameter(dbCommand, "@phoneNumber_bak2", DbType.String, room.Bak2PhoneNumber);
+            //@distName,@nickName,@distAddress,@distDesc,@contact_primary,@phoneNumber_primary,@contact_bak1
+            //,@phoneNumber_bak1,@contact_bak2,@phoneNumber_bak2
+            // Get results.
+            using (IDataReader objReader = db.ExecuteReader(dbCommand))
+            {
+                if(objReader.Read()){
+                    returnValue = true;
+                    roomId = objReader["RoomId"] != DBNull.Value ? Convert.ToInt32(objReader["RoomId"] ):roomId = null;
+                }
             }
-    }
+            if( returnValue)
+                  return null;
+            else
+                return roomId;
+        }
+
+        public void DeleteRoom(int roomId)
+        {
+            Database db;
+            string sqlCommand;
+            DbCommand dbCommand;
+
+            db = DatabaseFactory.CreateDatabase();
+            sqlCommand = STMT_DELETEROOM;
+            dbCommand = db.GetSqlStringCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@distId", DbType.Int32, roomId);
+
+            // Get results.
+            db.ExecuteNonQuery(dbCommand);
+
+            return;
+        }
+
+        public void UpdateRoom(RoomBaseInfo room){
+            Database db;
+            string sqlCommand;
+            DbCommand dbCommand;
+
+            db = DatabaseFactory.CreateDatabase();
+            sqlCommand = STMT_UPDATEROOM;
+            dbCommand = db.GetSqlStringCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@distName", DbType.String, room.RoomName);
+            db.AddInParameter(dbCommand, "@nickName", DbType.String, room.RoomNickName);
+            db.AddInParameter(dbCommand, "@distAddress", DbType.String, room.RoomAddress);
+            db.AddInParameter(dbCommand, "@distDesc", DbType.String, room.RoomDescription);
+            db.AddInParameter(dbCommand, "@contact_primary", DbType.String, room.PrimaryContact);
+            db.AddInParameter(dbCommand, "@phoneNumber_primary", DbType.String, room.PrimaryPhoneNumber);
+            db.AddInParameter(dbCommand, "@contact_bak1", DbType.String, room.Bak1Contact);
+            db.AddInParameter(dbCommand, "@phoneNumber_bak1", DbType.String, room.Bak1PhoneNumber);
+            db.AddInParameter(dbCommand, "@contact_bak2", DbType.String, room.Bak2Contact);
+            db.AddInParameter(dbCommand, "@phoneNumber_bak2", DbType.String, room.Bak2PhoneNumber);
+            db.AddInParameter(dbCommand, "@distId", DbType.Int32, room.RoomId);
+            //@distName,@nickName,@distAddress,@distDesc,@contact_primary,@phoneNumber_primary,@contact_bak1
+            //,@phoneNumber_bak1,@contact_bak2,@phoneNumber_bak2
+            // Get results.
+            db.ExecuteNonQuery(dbCommand);
+
+            return;
+        }
+
+        public void AddDeviceToRoom(int deviceId, int roomId){
+            Database db;
+            string sqlCommand;
+            DbCommand dbCommand;
+
+            db = DatabaseFactory.CreateDatabase();
+            sqlCommand = STMT_ADDDEVICETOROOM;
+            dbCommand = db.GetSqlStringCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@distId", DbType.Int32, roomId);
+            db.AddInParameter(dbCommand, "@devId", DbType.Int32, deviceId);
+
+            // Get results.
+            db.ExecuteNonQuery(dbCommand);
+
+            return;
+        }
+
+        public void DeleteDeviceFromRoom(int deviceId, int roomId){
+            Database db;
+            string sqlCommand;
+            DbCommand dbCommand;
+
+            db = DatabaseFactory.CreateDatabase();
+            sqlCommand = STMT_DELETEDEVICEFROMROOM;
+            dbCommand = db.GetSqlStringCommand(sqlCommand);
+            db.AddInParameter(dbCommand, "@distId", DbType.Int32, roomId);
+            db.AddInParameter(dbCommand, "@devId", DbType.Int32, deviceId);
+
+            // Get results.
+            db.ExecuteNonQuery(dbCommand);
+
+            return;
+        }
+   
 }

@@ -56,17 +56,17 @@ namespace PowerServer.DataContracts
 
 #region Device Data
     [DataContract]
-    public struct DeviceBaseInfo
+    public class DeviceBaseInfo
     {
-        public int DeviceId { get; set; }
-        public string DeviceName { get; set; }
-        public string AddressCode { get; set; }
-        public double MaxCurrent { get; set; }
-        public double WarningCurrent { get; set; }
-        public double WarningVoltageHigh { get; set; }
-        public double WarningVoltageLow { get; set; }
-        public DeviceStatus DeviceStatus { get; set; }
-        public int RoomId { get; set; }
+        public int? DeviceId { get; set; }
+        public string? DeviceName { get; set; }
+        public string? AddressCode { get; set; }
+        public double? MaxCurrent { get; set; }
+        public double? WarningCurrent { get; set; }
+        public double? WarningVoltageHigh { get; set; }
+        public double? WarningVoltageLow { get; set; }
+        public DeviceStatus? DeviceStatus { get; set; }
+        public int? RoomId { get; set; }
     }
     [DataContract]
     public enum DeviceStatus{Online,Offline}
