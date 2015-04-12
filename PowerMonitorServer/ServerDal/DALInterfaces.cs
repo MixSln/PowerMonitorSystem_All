@@ -5,9 +5,9 @@ using System.Text;
 
 using PowerServer.DataContracts;
 
-namespace PowerServer.ServerDal
+namespace PowerServer.ServerDAL
 {
-    interface IRoomDal
+    interface IRoomDAL
     {
         public RoomBaseInfo GetRoomById(int roomId);
         public IList<RoomBaseInfo> GetRoomList();
@@ -20,11 +20,14 @@ namespace PowerServer.ServerDal
         public bool DeleteDeviceFromRoom(int deviceId, int roomId);
     }
 
-    interface IDeviceDal
+    interface IDeviceDAL
     {
         public DeviceBaseInfo GetDeviceById(int deviceId);
         public IList<DeviceBaseInfo> GetDeviceList();
         public IList<DeviceBaseInfo> GetDeviceListByUserId(int userId);
+        public IList<DeviceBaseInfo> GetUnAssignedDeviceList();
+        public IList<DeviceBaseInfo> GetDeviceListByRoomId(int roomId);
+
         public int AddDevice(DeviceBaseInfo device);        
         public bool UpdateDevice(DeviceBaseInfo device);
 
@@ -32,13 +35,13 @@ namespace PowerServer.ServerDal
         public bool DeleteDeviceFromRoom(int deviceId, int roomId);
     }
 
-    interface IConfigDal
+    interface IConfigDAL
     {
         public string GetConfigValue(string configString);
         public bool UpdateConfigValue(ConfigInfo configInfo);
     }
 
-    interface IDeviceWarningDal
+    interface IDeviceWarningDAL
     {
         public DeviceWarningInfo GetDeviceWarning(int deviceId,DeviceWarningType warningType);
         public IList<DeviceWarningInfo> GetDeviceWarningHistoryByDeviceId(int deviceId);
@@ -48,14 +51,14 @@ namespace PowerServer.ServerDal
         public bool DisableDeviceWarning(DeviceWarningInfo deviceWarning);
     }
 
-    interface ILogDal
+    interface ILogDAL
     {
         public bool InsertLog(LogInfo logInfo);
 
-        public IList<LogInfo> GetLog();
+        public IList<LogInfo> GetLog();//needs to check what's the parameter should be.
     }
 
-    interface IUserDal
+    interface IUserDAL
     {
         public bool GetUserByUserId(int userId);
         public bool AddUser(UserBaseInfo userInfo);
