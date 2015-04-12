@@ -7,7 +7,7 @@ using PowerServer.DataContracts;
 
 namespace PowerServer.ServerDAL
 {
-    interface IRoomDAL
+    public interface IRoomDAL
     {
         public RoomBaseInfo GetRoomById(int roomId);
         public IList<RoomBaseInfo> GetRoomList();
@@ -20,7 +20,7 @@ namespace PowerServer.ServerDAL
         public bool DeleteDeviceFromRoom(int deviceId, int roomId);
     }
 
-    interface IDeviceDAL
+    public interface IDeviceDAL
     {
         public DeviceBaseInfo GetDeviceById(int deviceId);
         public IList<DeviceBaseInfo> GetDeviceList();
@@ -35,13 +35,13 @@ namespace PowerServer.ServerDAL
         public bool DeleteDeviceFromRoom(int deviceId, int roomId);
     }
 
-    interface IConfigDAL
+    public interface IConfigDAL
     {
         public string GetConfigValue(string configString);
         public bool UpdateConfigValue(ConfigInfo configInfo);
     }
 
-    interface IDeviceWarningDAL
+    public interface IDeviceWarningDAL
     {
         public DeviceWarningInfo GetDeviceWarning(int deviceId,DeviceWarningType warningType);
         public IList<DeviceWarningInfo> GetDeviceWarningHistoryByDeviceId(int deviceId);
@@ -51,14 +51,14 @@ namespace PowerServer.ServerDAL
         public bool DisableDeviceWarning(DeviceWarningInfo deviceWarning);
     }
 
-    interface ILogDAL
+    public interface ILogDAL
     {
         public bool InsertLog(LogInfo logInfo);
 
         public IList<LogInfo> GetLog();//needs to check what's the parameter should be.
     }
 
-    interface IUserDAL
+    public interface IUserDAL
     {
         public bool GetUserByUserId(int userId);
         public bool AddUser(UserBaseInfo userInfo);

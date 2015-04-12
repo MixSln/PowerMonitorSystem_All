@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerMonitorServerHost", "PowerMonitorServerHost\PowerMonitorServerHost.csproj", "{DED04CCB-99B8-47E5-8A08-558133AF6B98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDal", "ServerDal\ServerDal.csproj", "{A0928D47-A2EF-4C97-B689-6488B9B68C9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDAL", "ServerDal\ServerDAL.csproj", "{A0928D47-A2EF-4C97-B689-6488B9B68C9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerBll", "ServerBll\ServerBll.csproj", "{FE7A0AAF-2097-48B0-9004-268E6C47BDCC}"
 EndProject

@@ -13,19 +13,19 @@ namespace PowerServer.DataContracts
 
 #region Room Data
     [DataContract]
-    public struct RoomBaseInfo
+    public class RoomBaseInfo
     {
-        public int RoomId { get; set; }
-        public string RoomName { get; set; }
-        public string RoomNickName { get; set; }
-        public string RoomAddress { get; set; }
-        public string RoomDescription { get; set; }
-        public string PrimaryContact { get; set; }
-        public string PrimaryPhoneNumber { get; set; }
-        public string Bak1Contact { get; set; }
-        public string Bak1PhoneNumber { get; set; }
-        public string Bak2Contact { get; set; }
-        public string Bak2PhoneNumber { get; set; }
+        public int? RoomId { get; set; }
+        public string? RoomName { get; set; }
+        public string? RoomNickName { get; set; }
+        public string? RoomAddress { get; set; }
+        public string? RoomDescription { get; set; }
+        public string? PrimaryContact { get; set; }
+        public string? PrimaryPhoneNumber { get; set; }
+        public string? Bak1Contact { get; set; }
+        public string? Bak1PhoneNumber { get; set; }
+        public string? Bak2Contact { get; set; }
+        public string? Bak2PhoneNumber { get; set; }
     }
 #endregion
 

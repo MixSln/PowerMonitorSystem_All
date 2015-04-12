@@ -4,6 +4,10 @@ using System.ServiceModel;
 using System.Text;
 using PowerServer.DataContracts;
 
+using System.Data;
+using System.Data.SqlClient;
+
+
 namespace PowerServer.ServerAil
 {
     [ServiceContract(Namespace="PowerServer",CallbackContract=typeof(IPublisherEvents))]
