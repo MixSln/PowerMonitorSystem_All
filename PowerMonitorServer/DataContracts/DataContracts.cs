@@ -15,17 +15,42 @@ namespace PowerServer.DataContracts
     [DataContract]
     public class RoomBaseInfo
     {
+        [DataMember]
         public int? RoomId { get; set; }
+        [DataMember]
         public string? RoomName { get; set; }
+        [DataMember]
         public string? RoomNickName { get; set; }
+        [DataMember]
         public string? RoomAddress { get; set; }
+        [DataMember]
         public string? RoomDescription { get; set; }
+        [DataMember]
         public string? PrimaryContact { get; set; }
+        [DataMember]
         public string? PrimaryPhoneNumber { get; set; }
+        [DataMember]
         public string? Bak1Contact { get; set; }
+        [DataMember]
         public string? Bak1PhoneNumber { get; set; }
+        [DataMember]
         public string? Bak2Contact { get; set; }
+        [DataMember]
         public string? Bak2PhoneNumber { get; set; }
+    }
+
+    [DataContract]
+    public class RoomInfo
+    {
+        [DataMember]
+        RoomBaseInfo baseInfo;
+        [DataMember]
+        Dictionary<int, DeviceBaseInfo> deviceDic;
+
+        public RoomInfo()
+        {
+            deviceDic = new Dictionary<int, DeviceBaseInfo>();
+        }
     }
 #endregion
 
@@ -45,6 +70,17 @@ namespace PowerServer.DataContracts
     }
     [DataContract]
     public enum DeviceStatus{Online,Offline}
+    [DataContract]
+    public struct DeviceRealTimeInfo
+    {
+
+    }
+    [DataContract]
+    public class DeviceInfo
+    {
+        DeviceBaseInfo baseInfo;
+        DeviceRealTimeInfo rtInfo;
+    }
 #endregion
 
 #region User Data
@@ -52,6 +88,19 @@ namespace PowerServer.DataContracts
     public struct UserBaseInfo
     {
 
+    }
+    [DataContract]
+    public class UserInfo
+    {
+        [DataMember]
+        UserBaseInfo baseInfo;
+        [DataMember]
+        Dictionary<int, RoomInfo> roomDic;
+
+        public UserInfo()
+        {
+            roomDic = new Dictionary<int, RoomInfo>();
+        }
     }
 #endregion
 
