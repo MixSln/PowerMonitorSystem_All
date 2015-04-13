@@ -13,15 +13,21 @@ namespace PowerSuperMonitor
 {
     public partial class MainFrame : Form
     {
+        private Reciever _recver;
         public MainFrame()
         {
             InitializeComponent();
+            _recver = new Reciever();
         }
 
-        private void btn_test_Click(object sender, EventArgs e)
+        private void btn_changeskin_Click(object sender, EventArgs e)
         {
-            var proxy = new ChannelFactory<PowerServer.ServerAil.IPowerService>("PowerService").CreateChannel();
-            MessageBox.Show(proxy.checkUser("user","passwd").ToString());
+            
+        }
+
+        private void MainFrame_Shown(object sender, EventArgs e)
+        {
+            this.MySkin.SkinFile = "Skin\\DeepCyan.ssk";
         }
     }
 }
