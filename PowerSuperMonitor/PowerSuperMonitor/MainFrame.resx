@@ -120,13 +120,72 @@
   <metadata name="MySkin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>116, 17</value>
   </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="MainStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>231, 17</value>
   </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="MainTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>347, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASfSURBVFhHxZR5TFxVFMZxixpDTdNCJKQ0QlBIi9Quot00
+        GKI0xdS4pBqtTWOjWIyGSDRAJaih0FawIS21VKq2GNpKS1sqWJYRyrAU2aFswzDDrO/NDDPMBlPT+3ku
+        MgZh/iBWnif5ZW7uO/d83zn3zfP7N7E6uyg3KrvIPhe+P5OyuMHFdLcYxjy3oSZGp25DSb98fyZlcYML
+        Dbv/QJ/zFnocHnTZPeihtaQGukm41TqJZqJx3I0W25S0BtomPJCTcL3FDZnZhQYyIqmBJuq4loSrTC5U
+        ik7UWCQ2UDc+hQrRhXLBiUtGJypMbmkNVFHHZSRcanDgvN6BMlFiA+XUcQkJF+vs+IEoMbikNVBKHX+v
+        taNwzI4C9QRO6SU2UGx04SgJH1HZcFhpxVGN484MrMou+iQq57v+BUFCJ/VOHCThrBErMhXjOKy2TxtY
+        KPM+27xw7bibVZnd7FeiwuRiV4ly4pLoYhdFJysVnOyc0cmKdA72DY0+Q2FF2rAVKYMWpClsOGKYRKHJ
+        gwLRg3zBg1zikMGDA8QXeg8ydFNI005hv8HHV5NvVFo9uGCaxM/iJM4SPwlunDHSXROFdMfHdS7k65w4
+        RN3uJ8HkAQs+7Lcgsc+C9/vM2Ddgxb5BK/bS7+6bVrzVZ8XOHgte7bJgR5cZ2zvNeLHdjIRem28DJST4
+        rdaBY3Sf+dRhHgkdHLUja3QCmSM2pJPop0NWJFPHSSTMRd/tNeGdHhPe7BLxeoeAl9sFJPxuRHyLAXEt
+        esQ26rG1QYuN17WIqdNgnUyDzTeE+QboTpTH1TaWozCzr4bNLHPQxD4fFFlqv8BSbgosuVdgST0Gltht
+        YHs7DWxPrxlvk/AbJPwaF24TsL1Jw+LlKhZ3Xcli65Vsq2yEbaodZk9XD7MNVUNsbeUQi/5lgMXIVIzr
+        zUj/FdzRCRrzAXqzv6SOM5Q2pNIdpxAfUddJNO73qOs9NO5dJLyThF/pEPESCW9rNeKFG7xjI2KbqeMm
+        PTbKdYhp0GF9vQZPUudP1I5hVc0YIq6psUZu8DmB3A15Zxzr8k7PY+3XP/6DLYVX3Duo63gSjqNRxzZx
+        9Hf2L+DxeM5J/4XACyR0mvBskxGbqZtnGvR4rlWc39ViBRfa1m6hEetpxHoasRZbpDbwfJsJa0g4SqZF
+        ZI0GTzVLbGBTiwmR1Ro8dk2DsEoNohuM0hpY3ygitFKNlRVqhJSrEFnn481erOBCvOMVV1UIJvGgy6MI
+        l0lsILJOQNAVNR65rEZgmQqhNRJfQfhvRgReVCHgggrLS0cRUv3fTOAuH9w9h3tWZxXaH63SYvk5BZad
+        VWBpiQLBFWPg+/T8Xp4zK9+Lr9p/h3eDJ/IC9xH3Ew8QDxH+xBJiKbEsIj3PEXy+Gw+faMaSAjn8j8kR
+        UNyBiLRcBz0P5DkzufwMP8tr8Fq8Jq/NNbympoMvvMIPEvwQLxBABBEriFAinIhcufvj02FJ6a6wD1Jd
+        oYmfTcPXIbuSiul5NM+ZyeVn+Fleg9fiNXltruE1Mh3eMfHR8U2vGW8SZ/ZYZ69nT2/us4XUm47ZRbzr
+        xYq5Wv9n+Pn9CSXNFb2XsZO5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        RK5CYII=
+</value>
+  </data>
 </root>
