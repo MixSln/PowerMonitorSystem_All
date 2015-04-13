@@ -18,25 +18,25 @@ namespace PowerServer.DataContracts
         [DataMember]
         public int? RoomId { get; set; }
         [DataMember]
-        public string? RoomName { get; set; }
+        public string RoomName { get; set; }
         [DataMember]
-        public string? RoomNickName { get; set; }
+        public string RoomNickName { get; set; }
         [DataMember]
-        public string? RoomAddress { get; set; }
+        public string RoomAddress { get; set; }
         [DataMember]
-        public string? RoomDescription { get; set; }
+        public string RoomDescription { get; set; }
         [DataMember]
-        public string? PrimaryContact { get; set; }
+        public string PrimaryContact { get; set; }
         [DataMember]
-        public string? PrimaryPhoneNumber { get; set; }
+        public string PrimaryPhoneNumber { get; set; }
         [DataMember]
-        public string? Bak1Contact { get; set; }
+        public string Bak1Contact { get; set; }
         [DataMember]
-        public string? Bak1PhoneNumber { get; set; }
+        public string Bak1PhoneNumber { get; set; }
         [DataMember]
-        public string? Bak2Contact { get; set; }
+        public string Bak2Contact { get; set; }
         [DataMember]
-        public string? Bak2PhoneNumber { get; set; }
+        public string Bak2PhoneNumber { get; set; }
     }
 
     [DataContract]
@@ -59,8 +59,8 @@ namespace PowerServer.DataContracts
     public class DeviceBaseInfo
     {
         public int? DeviceId { get; set; }
-        public string? DeviceName { get; set; }
-        public string? AddressCode { get; set; }
+        public string DeviceName { get; set; }
+        public string AddressCode { get; set; }
         public double? MaxCurrent { get; set; }
         public double? WarningCurrent { get; set; }
         public double? WarningVoltageHigh { get; set; }

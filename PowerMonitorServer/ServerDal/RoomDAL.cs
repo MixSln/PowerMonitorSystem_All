@@ -15,7 +15,7 @@ using System.Data.SqlClient;
 
 namespace PowerServer.ServerDAL
 {
-    class RoomDAL:IRoomDAL
+    class RoomDAL : IRoomDAL
     {
         private static string STMT_GETROOMBYID = @"SELECT [distId]
                           ,[distName],[nickName],[distAddress],[distDesc],[contact_primary]
@@ -39,7 +39,7 @@ namespace PowerServer.ServerDAL
                  VALUES(@distName,@nickName,@distAddress,@distDesc,@contact_primary,@phoneNumber_primary,@contact_bak1
                        ,@phoneNumber_bak1,@contact_bak2,@phoneNumber_bak2);
                         select SCOPE_IDENTITY() RoomId;";
-        private static string  STMT_DELETEROOM = @"delete dbo.distribution where distId = @distId";
+        private static string STMT_DELETEROOM = @"delete dbo.distribution where distId = @distId";
         private static string STMT_UPDATEROOM = @"update dbo.distribution set distName = @distName,nickName = @nickName,distAddress = @distAddress
                     ,distDesc = @distDesc,distDesc = @distDesc,contact_primary = @contact_primary,phoneNumber_primary = @phoneNumber_primary
                     ,contact_bak1 = @contact_bak1,phoneNumber_bak1 = @phoneNumber_bak1,contact_bak2=@contact_bak2,phoneNumber_bak2=@phoneNumber_bak2 
@@ -179,10 +179,11 @@ namespace PowerServer.ServerDAL
                 instances = ReadReaders(objReader);
             }
             return instances;
-        
+
         }
 
-        public int? AddRoom(RoomBaseInfo room){
+        public int? AddRoom(RoomBaseInfo room)
+        {
             Database db;
             string sqlCommand;
             DbCommand dbCommand;
@@ -207,13 +208,14 @@ namespace PowerServer.ServerDAL
             // Get results.
             using (IDataReader objReader = db.ExecuteReader(dbCommand))
             {
-                if(objReader.Read()){
+                if (objReader.Read())
+                {
                     returnValue = true;
-                    roomId = objReader["RoomId"] != DBNull.Value ? Convert.ToInt32(objReader["RoomId"] ):roomId = null;
+                    roomId = objReader["RoomId"] != DBNull.Value ? Convert.ToInt32(objReader["RoomId"]) : roomId = null;
                 }
             }
-            if( returnValue)
-                  return null;
+            if (returnValue)
+                return null;
             else
                 return roomId;
         }
@@ -235,7 +237,8 @@ namespace PowerServer.ServerDAL
             return;
         }
 
-        public void UpdateRoom(RoomBaseInfo room){
+        public void UpdateRoom(RoomBaseInfo room)
+        {
             Database db;
             string sqlCommand;
             DbCommand dbCommand;
@@ -262,7 +265,8 @@ namespace PowerServer.ServerDAL
             return;
         }
 
-        public void AddDeviceToRoom(int deviceId, int roomId){
+        public void AddDeviceToRoom(int deviceId, int roomId)
+        {
             Database db;
             string sqlCommand;
             DbCommand dbCommand;
@@ -279,7 +283,8 @@ namespace PowerServer.ServerDAL
             return;
         }
 
-        public void DeleteDeviceFromRoom(int deviceId, int roomId){
+        public void DeleteDeviceFromRoom(int deviceId, int roomId)
+        {
             Database db;
             string sqlCommand;
             DbCommand dbCommand;
@@ -295,5 +300,5 @@ namespace PowerServer.ServerDAL
 
             return;
         }
-   
+    }
 }
